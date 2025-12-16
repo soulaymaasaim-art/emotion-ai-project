@@ -1,0 +1,14 @@
+# Ignore Python virtual environment
+venv/
+
+# Ignore large dataset zip
+archive.zip
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyd
+*.dll
+
+# MacOS files
+.DS_Store
