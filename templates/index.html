@@ -66,7 +66,7 @@
         }
 
         /* Bouton Upload stylé */
-        button {
+        button.upload-button {
             padding: 12px 30px;
             font-size: 18px;
             border: none;
@@ -80,9 +80,30 @@
             margin-top: 15px;
         }
 
-        button:hover {
+        button.upload-button:hover {
             background: linear-gradient(45deg, #ff6347, #ff0000);
             transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Bouton Déconnexion stylé */
+        .logout-button {
+            display: inline-block;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 12px;
+            background: linear-gradient(45deg, #ff4e50, #f9d423);
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .logout-button:hover {
+            background: linear-gradient(45deg, #f9d423, #ff4e50);
+            transform: scale(1.05);
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
@@ -111,7 +132,7 @@
         .emoji {
             position: absolute;
             font-size: 50px;
-            opacity: 0.1;
+            opacity: 0.15;
             animation: floatUp linear infinite;
         }
 
@@ -126,11 +147,11 @@
     <h1>😄 Reconnaissance des émotions 😢</h1>
 
     <!-- Emojis flottants -->
-    <div class="emoji" style="left: 10%; animation-duration: 25s;">😄</div>
-    <div class="emoji" style="left: 30%; animation-duration: 30s;">😢</div>
-    <div class="emoji" style="left: 50%; animation-duration: 20s;">😄</div>
-    <div class="emoji" style="left: 70%; animation-duration: 35s;">😢</div>
-    <div class="emoji" style="left: 85%; animation-duration: 28s;">😄</div>
+    <div class="emoji" style="left: 10%; animation-duration: 15s;">😄</div>
+    <div class="emoji" style="left: 30%; animation-duration: 20s;">😢</div>
+    <div class="emoji" style="left: 50%; animation-duration: 18s;">😄</div>
+    <div class="emoji" style="left: 70%; animation-duration: 22s;">😢</div>
+    <div class="emoji" style="left: 85%; animation-duration: 17s;">😄</div>
 
     <div class="upload-card">
         <form method="POST" enctype="multipart/form-data">
@@ -142,8 +163,11 @@
             <br>
             
             <!-- Bouton submit -->
-            <button type="submit">Upload</button>
+            <button type="submit" class="upload-button">Upload</button>
         </form>
+
+        <!-- Bouton Déconnexion -->
+        <a href="{{ url_for('logout') }}" class="logout-button">Déconnexion</a>
 
         {% if result %}
             <div class="result">{{ result }}</div>
@@ -155,6 +179,14 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 
